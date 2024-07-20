@@ -1,6 +1,6 @@
 # SpaceX Launches App
 
-https://github.com/user-attachments/assets/fd202887-d67d-4863-b506-6bc724a8e854
+![SpaceX Launches App](https://github.com/user-attachments/assets/fd202887-d67d-4863-b506-6bc724a8e854)
 
 ## Overview
 
@@ -35,8 +35,8 @@ The app adheres to the MVVM architecture, which organizes the code into three di
 
 #### Model
 
-- **`Launch`**: Represents a SpaceX launch, including details like launch date, mission name, and related links.
-- **`Rocket`**: Contains details about a SpaceX rocket.
+- **`Launch`**: Represents a SpaceX launch, including details such as launch date, mission name, rocket ID, and related links.
+- **`Rocket`**: Contains details about a SpaceX rocket, including its ID, name, and type.
 - **`LaunchFailure`, `LaunchLink`**: Additional data models related to launches.
 
 These models are structured using SwiftData's `ModelContainer`.
@@ -49,7 +49,10 @@ These models are structured using SwiftData's `ModelContainer`.
 #### ViewModel
 
 - **`LaunchesViewModel`**: Handles fetching and filtering of launch data. It interacts with `NetworkService` to retrieve data and manage errors.
+  - **`ModelContextProtocol`**: Protocol for managing data context, which is implemented by `SwiftDataModelContext`.
+  - **`SwiftDataModelContext`**: Concrete implementation of `ModelContextProtocol` that interacts with SwiftData for data persistence.
 - **`LaunchDetailViewModel`**: Manages the fetching and displaying of rocket details for a specific launch, ensuring that data is fetched only when needed.
+  - **`ModelContextProtocol`**: Protocol for managing data context, which is implemented by `SwiftDataModelContext`.
 
 ### Networking
 
@@ -77,7 +80,6 @@ To get started with the SpaceX Launches app:
 2. **Open the project** in Xcode 15.
 3. **Ensure you have the necessary dependencies** and that you are running iOS 17.0 or later.
 
-
 ## Next Steps and Potential Improvements
 
 Here are some areas for future enhancement:
@@ -96,6 +98,4 @@ Here are some areas for future enhancement:
 
 5. **Implement Localization**:
    - **Description**: Add support for multiple languages by localizing error messages and other text elements.
-
-
 
