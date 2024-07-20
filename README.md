@@ -23,8 +23,10 @@ The app adheres to the MVVM architecture, which organizes the code into three di
 
 ### Folder Descriptions
 
+- **`Assets.xcassets/`**: Contains asset catalogs used in the app, including images and other resources.
 - **`Models/`**: Contains data models used by the application. This includes representations of SpaceX launches, rockets, and related data.
 - **`Network/`**: Includes networking components and protocols for handling API requests and responses.
+- **`Persistence/`**: Manages local data storage using `ModelContainer` and SwiftData.
 - **`Preview Content/`**: Contains assets used for SwiftUI previews.
 - **`Utils/`**: Utility files and extensions used across the application.
 - **`ViewModels/`**: Contains the ViewModel classes that manage data and business logic for the views.
