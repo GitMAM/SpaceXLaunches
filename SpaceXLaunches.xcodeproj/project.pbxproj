@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3456AA92C4C1BB3001E86C7 /* LaunchesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3456AA82C4C1BB3001E86C7 /* LaunchesViewModelTests.swift */; };
+		D3456AAC2C4C1C7B001E86C7 /* ModelContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3456AAB2C4C1C7B001E86C7 /* ModelContextProtocol.swift */; };
+		D3456AAE2C4C1E04001E86C7 /* SwiftDataModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3456AAD2C4C1E04001E86C7 /* SwiftDataModelContext.swift */; };
+		D3456AB12C4C224D001E86C7 /* MockModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3456AB02C4C224D001E86C7 /* MockModelContext.swift */; };
+		D3456AB32C4C2282001E86C7 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3456AB22C4C2282001E86C7 /* MockNetworkService.swift */; };
+		D3456AB52C4C283F001E86C7 /* LaunchDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3456AB42C4C283F001E86C7 /* LaunchDetailsViewModelTests.swift */; };
 		D3743B3B2C4ABA030042F8BA /* SpaceXLaunchesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3743B3A2C4ABA030042F8BA /* SpaceXLaunchesApp.swift */; };
 		D3743B412C4ABA040042F8BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3743B402C4ABA040042F8BA /* Assets.xcassets */; };
 		D3743B442C4ABA040042F8BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3743B432C4ABA040042F8BA /* Preview Assets.xcassets */; };
@@ -43,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3456AA82C4C1BB3001E86C7 /* LaunchesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModelTests.swift; sourceTree = "<group>"; };
+		D3456AAB2C4C1C7B001E86C7 /* ModelContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContextProtocol.swift; sourceTree = "<group>"; };
+		D3456AAD2C4C1E04001E86C7 /* SwiftDataModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataModelContext.swift; sourceTree = "<group>"; };
+		D3456AB02C4C224D001E86C7 /* MockModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModelContext.swift; sourceTree = "<group>"; };
+		D3456AB22C4C2282001E86C7 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		D3456AB42C4C283F001E86C7 /* LaunchDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		D3743B372C4ABA030042F8BA /* SpaceXLaunches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3743B3A2C4ABA030042F8BA /* SpaceXLaunchesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchesApp.swift; sourceTree = "<group>"; };
 		D3743B402C4ABA040042F8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +100,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3456AAA2C4C1C42001E86C7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D3456AAB2C4C1C7B001E86C7 /* ModelContextProtocol.swift */,
+				D3456AAD2C4C1E04001E86C7 /* SwiftDataModelContext.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D3456AAF2C4C2244001E86C7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D3456AB02C4C224D001E86C7 /* MockModelContext.swift */,
+				D3456AB22C4C2282001E86C7 /* MockNetworkService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		D3743B2E2C4ABA030042F8BA = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +139,7 @@
 		D3743B392C4ABA030042F8BA /* SpaceXLaunches */ = {
 			isa = PBXGroup;
 			children = (
+				D3456AAA2C4C1C42001E86C7 /* Persistence */,
 				D3F8B8C22C4C072800C9420C /* App */,
 				D3743B832C4B2FAF0042F8BA /* Utils */,
 				D3743B7B2C4B24860042F8BA /* Views */,
@@ -132,8 +163,11 @@
 		D3743B4C2C4ABA040042F8BA /* SpaceXLaunchesTests */ = {
 			isa = PBXGroup;
 			children = (
+				D3456AAF2C4C2244001E86C7 /* Mocks */,
 				D3743B4D2C4ABA040042F8BA /* SpaceXLaunchesTests.swift */,
 				D3743B862C4BC99B0042F8BA /* DateExtensionTests.swift */,
+				D3456AA82C4C1BB3001E86C7 /* LaunchesViewModelTests.swift */,
+				D3456AB42C4C283F001E86C7 /* LaunchDetailsViewModelTests.swift */,
 			);
 			path = SpaceXLaunchesTests;
 			sourceTree = "<group>";
@@ -316,11 +350,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F8B8B22C4BE9CE00C9420C /* LaunchDetailsView.swift in Sources */,
+				D3456AAC2C4C1C7B001E86C7 /* ModelContextProtocol.swift in Sources */,
 				D3743B7D2C4B24920042F8BA /* LaunchListView.swift in Sources */,
 				D3F8B8A82C4BCF8500C9420C /* ErrorAlertViewModifer.swift in Sources */,
 				D3F8B8AC2C4BE99400C9420C /* LaunchPatchView.swift in Sources */,
 				D3743B6C2C4ABF5C0042F8BA /* LaunchFailure.swift in Sources */,
 				D3F8B8B02C4BE9BB00C9420C /* LaunchFailuresView.swift in Sources */,
+				D3456AAE2C4C1E04001E86C7 /* SwiftDataModelContext.swift in Sources */,
 				D3F8B8B62C4BEDE200C9420C /* LaunchList.swift in Sources */,
 				D3743B7F2C4B249A0042F8BA /* LaunchDetailView.swift in Sources */,
 				D3743B712C4AC01D0042F8BA /* NetworkService.swift in Sources */,
@@ -341,8 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3456AB52C4C283F001E86C7 /* LaunchDetailsViewModelTests.swift in Sources */,
 				D3743B4E2C4ABA040042F8BA /* SpaceXLaunchesTests.swift in Sources */,
+				D3456AB12C4C224D001E86C7 /* MockModelContext.swift in Sources */,
+				D3456AB32C4C2282001E86C7 /* MockNetworkService.swift in Sources */,
 				D3743B872C4BC99B0042F8BA /* DateExtensionTests.swift in Sources */,
+				D3456AA92C4C1BB3001E86C7 /* LaunchesViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

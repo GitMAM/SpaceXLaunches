@@ -2,14 +2,14 @@ import SwiftUI
 import SwiftData
 
 struct LaunchListView: View {
-  private let viewModel: LaunchesViewModel
+  private var viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>
   @Environment(\.modelContext) private var modelContext
   @Query(sort: \Launch.launchDateUTC) private var allLaunches: [Launch]
   
   @State private var showUpcoming = false
   @State private var showAlert = false
   
-  init(viewModel: LaunchesViewModel) {
+  init(viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>) {
     self.viewModel = viewModel
   }
   
@@ -23,11 +23,11 @@ struct LaunchListView: View {
     }
     .task {
       if allLaunches.isEmpty {
-        await viewModel.getLaunches(modelContext: modelContext)
+        await viewModel.getLaunches()
       }
     }
     .refreshable {
-      await viewModel.getLaunches(modelContext: modelContext)
+      await viewModel.getLaunches()
     }
     .errorAlert(viewModel: viewModel, showAlert: $showAlert)
   }
@@ -37,6 +37,6 @@ struct LaunchListView: View {
   }
   
   private var launchList: some View {
-    LaunchList(viewModel: viewModel, showUpcoming: showUpcoming, allLaunches: allLaunches)
+    LaunchList(viewModel: viewModel, showUpcoming: showUpcoming, allLaunches: allLaunches, modelContext: modelContext)
   }
 }

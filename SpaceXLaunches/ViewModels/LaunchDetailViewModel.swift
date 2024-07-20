@@ -3,7 +3,7 @@ import SwiftData
 
 /// ViewModel responsible for managing and presenting details of a rocket associated with a launch.
 @Observable
-final class LaunchDetailViewModel: ErrorHandlingViewModel {
+final class LaunchDetailViewModel<T: ModelContextProtocol> where T.ObjectType == Rocket {
   /// A message to be displayed when an error occurs.
   var errorMessage: String? = nil
   
@@ -13,26 +13,30 @@ final class LaunchDetailViewModel: ErrorHandlingViewModel {
   /// The rocket details associated with the current launch, if any.
   var rocket: Rocket?
   
-  /// Initializes a `LaunchDetailViewModel` with a specified network service.
+  /// The `ModelContextProtocol` instance used to save rocket details.
+  private let modelContext: T
+  
+  /// Initializes a `LaunchDetailViewModel` with a specified network service and model context.
   ///
-  /// - Parameter networkService: The `NetworkService` instance used to fetch rocket details.
-  init(networkService: NetworkService) {
+  /// - Parameters:
+  ///   - networkService: The `NetworkService` instance used to fetch rocket details.
+  ///   - modelContext: The `ModelContextProtocol` instance used to save fetched rocket details.
+  init(networkService: NetworkService, modelContext: T) {
     self.networkService = networkService
+    self.modelContext = modelContext
   }
   
   // MARK: - Public Methods
   
   /// Fetches rocket details if they are not already loaded.
   ///
-  /// - Parameters:
-  ///   - launch: The `Launch` object containing the ID of the rocket to fetch.
-  ///   - modelContext: The `ModelContext` in which to insert the fetched rocket details.
-  /// - Note: This method only initiates the fetch if the `rocket` property is `nil`.
+  /// - Parameter launch: The `Launch` object containing the ID of the rocket to fetch.
+  /// - Note: This method only initiates the fetch if the `rocket` property is `nil`. If the rocket is already loaded, no action is taken.
   @MainActor
-  func fetchRocketIfNeeded(launch: Launch, modelContext: ModelContext) {
+  func fetchRocketIfNeeded(launch: Launch) {
     guard rocket == nil else { return }
     Task {
-      await getRocket(modelContext: modelContext, rocketId: launch.rocket)
+      await getRocket(rocketId: launch.rocket)
     }
   }
   
@@ -40,12 +44,10 @@ final class LaunchDetailViewModel: ErrorHandlingViewModel {
   
   /// Fetches rocket details from the network service and updates the model context.
   ///
-  /// - Parameters:
-  ///   - modelContext: The `ModelContext` in which to insert the fetched rocket details.
-  ///   - rocketId: The ID of the rocket to fetch.
-  /// - Throws: Sets the `errorMessage` if an error occurs during data fetching.
+  /// - Parameter rocketId: The ID of the rocket to fetch.
+  /// - Throws: Sets the `errorMessage` if an error occurs during data fetching or saving.
   @MainActor
-  private func getRocket(modelContext: ModelContext, rocketId: String) async {
+  private func getRocket(rocketId: String) async {
     do {
       let fetchedRocket = try await networkService.fetchRocketDetails(by: rocketId)
       modelContext.insert(fetchedRocket)
@@ -56,4 +58,6 @@ final class LaunchDetailViewModel: ErrorHandlingViewModel {
     }
   }
 }
+
+extension LaunchDetailViewModel: ErrorHandlingViewModel {}
 

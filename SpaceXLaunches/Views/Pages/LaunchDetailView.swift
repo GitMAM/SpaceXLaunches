@@ -6,7 +6,7 @@ import SwiftUI
 struct DetailView: View {
   let launch: Launch
   @Environment(\.modelContext) private var modelContext
-  @ObservedObject var viewModel: LaunchDetailViewModel
+  var viewModel: LaunchDetailViewModel<SwiftDataModelContext<Rocket>>
   @Query private var rockets: [Rocket]
   @State private var showAlert = false
 
@@ -21,7 +21,7 @@ struct DetailView: View {
       .padding()
     }
     .onAppear {
-      viewModel.fetchRocketIfNeeded(launch: launch, modelContext: modelContext)
+      viewModel.fetchRocketIfNeeded(launch: launch)
     }
     .navigationTitle(launch.missionName)
     .navigationBarTitleDisplayMode(.inline)

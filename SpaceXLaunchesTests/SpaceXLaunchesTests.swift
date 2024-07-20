@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import SpaceXLaunches
+import SwiftData
 
 class MockURLSession: URLSessionProtocol {
   var data: Data?
@@ -30,7 +31,6 @@ class MockURLSession: URLSessionProtocol {
     }
   }
 }
-
 
 
 final class SpaceXNetworkServiceTests: XCTestCase {

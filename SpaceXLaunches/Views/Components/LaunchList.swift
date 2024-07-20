@@ -1,14 +1,17 @@
 import SwiftUI
+import SwiftData
 
 struct LaunchList: View {
-  private let viewModel: LaunchesViewModel
+  private let viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>
   private let showUpcoming: Bool
   private let allLaunches: [Launch]
+  private let modelContext: ModelContext
   
-  init(viewModel: LaunchesViewModel, showUpcoming: Bool, allLaunches: [Launch]) {
+  init(viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>, showUpcoming: Bool, allLaunches: [Launch], modelContext: ModelContext) {
     self.viewModel = viewModel
     self.showUpcoming = showUpcoming
     self.allLaunches = allLaunches
+    self.modelContext = modelContext
   }
   
   var body: some View {
@@ -23,7 +26,7 @@ struct LaunchList: View {
   }
   
   private func launchDetailView(for launch: Launch) -> some View {
-    let detailViewModel = LaunchDetailViewModel(networkService: SpaceXNetworkService())
+    let detailViewModel = LaunchDetailViewModel(networkService: SpaceXNetworkService(), modelContext: SwiftDataModelContext(modelContext: modelContext))
     return DetailView(launch: launch, viewModel: detailViewModel)
   }
 }

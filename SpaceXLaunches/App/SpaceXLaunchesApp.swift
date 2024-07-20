@@ -29,7 +29,7 @@ struct SpaceXLaunchesApp: App {
   
   var body: some Scene {
     WindowGroup {
-      LaunchListView(viewModel: LaunchesViewModel(networkService: SpaceXNetworkService()))
+      LaunchListView(viewModel: LaunchesViewModel(networkService: SpaceXNetworkService(), modelContext: SwiftDataModelContext(modelContext: sharedModelContainer.mainContext)))
     }
     .modelContainer(sharedModelContainer)
   }
