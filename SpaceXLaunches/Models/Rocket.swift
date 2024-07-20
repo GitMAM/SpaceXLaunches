@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
+// this could have a relation to the Launch but I chose not to give it in this case to reduce complexity.
 class Rocket: Decodable {
   @Attribute(.unique) var id: String
   var name: String
