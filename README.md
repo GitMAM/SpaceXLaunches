@@ -1,5 +1,7 @@
 # SpaceX Launches App
 
+https://github.com/user-attachments/assets/fd202887-d67d-4863-b506-6bc724a8e854
+
 ## Overview
 
 The SpaceX Launches app is a SwiftUI-based application designed to display SpaceX launches using modern Swift technologies. This app utilizes the MVVM (Model-View-ViewModel) design pattern, SwiftData for data management, and URLSession for networking.
