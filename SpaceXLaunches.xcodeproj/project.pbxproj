@@ -109,12 +109,12 @@
 		D3743B392C4ABA030042F8BA /* SpaceXLaunches */ = {
 			isa = PBXGroup;
 			children = (
+				D3F8B8C22C4C072800C9420C /* App */,
 				D3743B832C4B2FAF0042F8BA /* Utils */,
 				D3743B7B2C4B24860042F8BA /* Views */,
 				D3743B762C4B01970042F8BA /* ViewModels */,
 				D3743B6F2C4AC0120042F8BA /* Network */,
 				D3743B662C4ABF2B0042F8BA /* Models */,
-				D3743B3A2C4ABA030042F8BA /* SpaceXLaunchesApp.swift */,
 				D3743B402C4ABA040042F8BA /* Assets.xcassets */,
 				D3743B422C4ABA040042F8BA /* Preview Content */,
 			);
@@ -205,6 +205,14 @@
 				D3F8B8B72C4BEE0000C9420C /* LaunchPicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		D3F8B8C22C4C072800C9420C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D3743B3A2C4ABA030042F8BA /* SpaceXLaunchesApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
