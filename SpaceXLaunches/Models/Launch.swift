@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Launch: Codable {
+final class Launch: Codable {
   @Attribute(.unique) var id: String
   var missionName: String
   var launchDateUTC: String

@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
-class LaunchFailure: Decodable {
+final class LaunchFailure: Decodable {
   @Attribute(.unique) var reason: String?
   var time: Int?
   var altitude: Int?

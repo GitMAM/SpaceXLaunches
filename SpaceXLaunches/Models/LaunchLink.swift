@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
-class LaunchLink: Decodable {
+final class LaunchLink: Decodable {
   @Attribute(.unique) var id: UUID = UUID()
   var patch: Patch?
   @Relationship(inverse: \Launch.links) var launch: Launch?
@@ -22,7 +22,7 @@ class LaunchLink: Decodable {
 }
 
 @Model
-class Patch: Decodable {
+final class Patch: Decodable {
   @Attribute(.unique) var id: UUID = UUID()
   @Attribute var small: URL?
   @Relationship(inverse: \LaunchLink.patch) var link: LaunchLink?

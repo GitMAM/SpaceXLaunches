@@ -2,9 +2,9 @@ import SwiftUI
 import SwiftData
 
 struct LaunchListView: View {
-  private var viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>
+  private let viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>
   @Environment(\.modelContext) private var modelContext
-  @Query(sort: \Launch.launchDateUTC) private var allLaunches: [Launch]
+  @Query(sort: \Launch.launchDateUTC) private let allLaunches: [Launch]
   
   @State private var showUpcoming = false
   @State private var showAlert = false

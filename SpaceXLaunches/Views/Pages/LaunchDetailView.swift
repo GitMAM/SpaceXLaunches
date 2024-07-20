@@ -4,11 +4,16 @@ import SwiftData
 import SwiftUI
 
 struct DetailView: View {
-  let launch: Launch
+  private let launch: Launch
   @Environment(\.modelContext) private var modelContext
-  var viewModel: LaunchDetailViewModel<SwiftDataModelContext<Rocket>>
-  @Query private var rockets: [Rocket]
+  private let viewModel: LaunchDetailViewModel<SwiftDataModelContext<Rocket>>
+  @Query private let rockets: [Rocket]
   @State private var showAlert = false
+  
+  init(launch: Launch, viewModel: LaunchDetailViewModel<SwiftDataModelContext<Rocket>>) {
+    self.launch = launch
+    self.viewModel = viewModel
+  }
 
   var body: some View {
     ScrollView {
