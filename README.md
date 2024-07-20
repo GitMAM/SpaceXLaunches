@@ -19,6 +19,16 @@ The app adheres to the MVVM architecture, which organizes the code into three di
 - **View**: Handles the UI and user interactions.
 - **ViewModel**: Serves as an intermediary between the Model and View, managing presentation logic and data transformation.
 
+### Folder Descriptions
+
+- **`Models/`**: Contains data models used by the application. This includes representations of SpaceX launches, rockets, and related data.
+- **`Network/`**: Includes networking components and protocols for handling API requests and responses.
+- **`Preview Content/`**: Contains assets used for SwiftUI previews.
+- **`Utils/`**: Utility files and extensions used across the application.
+- **`ViewModels/`**: Contains the ViewModel classes that manage data and business logic for the views.
+- **`Views/`**: Contains SwiftUI views and UI components used in the app.
+- **`SpaceXLaunchesApp.swift`**: The main entry point of the application that sets up the app and initializes the `ModelContainer`.
+
 ### Components
 
 #### Model
