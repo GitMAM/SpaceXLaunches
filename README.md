@@ -15,7 +15,7 @@ The SpaceX Launches app is a SwiftUI-based application designed to display Space
 
 The app adheres to the MVVM architecture, which organizes the code into three distinct layers:
 
-- **Model**: Manages data and business logic.
+- **Model**: Manages data and main business logic.
 - **View**: Handles the UI and user interactions.
 - **ViewModel**: Serves as an intermediary between the Model and View, managing presentation logic and data transformation.
 
