@@ -118,6 +118,15 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		D3456AB62C4C4AD8001E86C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3743B402C4ABA040042F8BA /* Assets.xcassets */,
+				D3743B422C4ABA040042F8BA /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D3743B2E2C4ABA030042F8BA = {
 			isa = PBXGroup;
 			children = (
@@ -139,15 +148,14 @@
 		D3743B392C4ABA030042F8BA /* SpaceXLaunches */ = {
 			isa = PBXGroup;
 			children = (
-				D3456AAA2C4C1C42001E86C7 /* Persistence */,
 				D3F8B8C22C4C072800C9420C /* App */,
-				D3743B832C4B2FAF0042F8BA /* Utils */,
+				D3743B662C4ABF2B0042F8BA /* Models */,
 				D3743B7B2C4B24860042F8BA /* Views */,
 				D3743B762C4B01970042F8BA /* ViewModels */,
+				D3456AAA2C4C1C42001E86C7 /* Persistence */,
 				D3743B6F2C4AC0120042F8BA /* Network */,
-				D3743B662C4ABF2B0042F8BA /* Models */,
-				D3743B402C4ABA040042F8BA /* Assets.xcassets */,
-				D3743B422C4ABA040042F8BA /* Preview Content */,
+				D3743B832C4B2FAF0042F8BA /* Utils */,
+				D3456AB62C4C4AD8001E86C7 /* Resources */,
 			);
 			path = SpaceXLaunches;
 			sourceTree = "<group>";
@@ -523,7 +531,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SpaceXLaunches/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SpaceXLaunches/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -551,7 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SpaceXLaunches/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SpaceXLaunches/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
