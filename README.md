@@ -76,3 +76,24 @@ To get started with the SpaceX Launches app:
 3. **Ensure you have the necessary dependencies** and that you are running iOS 17.0 or later.
 
 
+## Next Steps and Potential Improvements
+
+Here are some areas for future enhancement:
+
+1. **Enhance Error Handling**:
+   - **Description**: Introduce a centralized error handling system or more detailed error reporting.
+
+2. **Add Unit and Integration Tests**:
+   - **Description**: Write comprehensive unit tests for ViewModels and integration tests for network interactions.
+
+3. **Improve UI/UX**:
+   - **Description**: Add loading indicators, animations, and more user feedback mechanisms. Explore accessibility improvements.
+
+4. **Abstract Network Layer Further**:
+   - **Description**: Enhance the abstraction of the network layer to support additional APIs or services.
+
+5. **Implement Localization**:
+   - **Description**: Add support for multiple languages by localizing error messages and other text elements.
+
+
+
