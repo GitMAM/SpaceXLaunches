@@ -1,6 +1,6 @@
 # SpaceX Launches App
 
-![SpaceX Launches App](https://github.com/user-attachments/assets/fd202887-d67d-4863-b506-6bc724a8e854)
+https://github.com/user-attachments/assets/fd202887-d67d-4863-b506-6bc724a8e854
 
 ## Overview
 
