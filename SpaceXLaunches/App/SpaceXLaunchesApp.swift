@@ -10,7 +10,9 @@ import SwiftData
 
 @main
 struct SpaceXLaunchesApp: App {
+  // Create a shared model container
   private let sharedModelContainer: ModelContainer = {
+    // Define the schema with all data models
     let schema = Schema([
       Launch.self,
       LaunchFailure.self,
@@ -18,10 +20,18 @@ struct SpaceXLaunchesApp: App {
       Rocket.self
     ])
     
-    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    // Configure model settings
+    let modelConfiguration = ModelConfiguration(
+      schema: schema,
+      isStoredInMemoryOnly: false
+    )
     
     do {
-      return try ModelContainer(for: schema, configurations: [modelConfiguration])
+      // Initialize and return the model container
+      return try ModelContainer(
+        for: schema,
+        configurations: [modelConfiguration]
+      )
     } catch {
       fatalError("Could not create ModelContainer: \(error)")
     }
@@ -29,8 +39,16 @@ struct SpaceXLaunchesApp: App {
   
   var body: some Scene {
     WindowGroup {
-      LaunchListView(viewModel: LaunchesViewModel(networkService: SpaceXNetworkService(), modelContext: SwiftDataModelContext(modelContext: sharedModelContainer.mainContext)))
+      // Pass the model context to the view model
+      LaunchListView(
+        viewModel: LaunchesViewModel(
+          networkService: SpaceXNetworkService(),
+          modelContext: SwiftDataModelContext(modelContext: sharedModelContainer.mainContext)
+        )
+      )
     }
+    // Attach the model container to the scene
     .modelContainer(sharedModelContainer)
   }
 }
+
