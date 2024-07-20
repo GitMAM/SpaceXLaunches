@@ -4,7 +4,7 @@ import XCTest
 final class LaunchDetailViewModelTests: XCTestCase {
   
   // Test fetching rocket details successfully
-  func testFetchRocketIfNeeded_Success() async {
+  func testFetchRocketIfNeeded_Success() async throws {
     // Create mock data for a rocket
     let mockRocketData = """
          {
@@ -37,7 +37,7 @@ final class LaunchDetailViewModelTests: XCTestCase {
     await viewModel.fetchRocketIfNeeded(launch: launch)
     
     // Check if the rocket was inserted into the model context
-    try! await Task.sleep(nanoseconds: 1_000_000_000)
+    try await Task.sleep(nanoseconds: 1_000_000_000)
     
     XCTAssertEqual(mockModelContext.savedObjects.count, 1)
     guard let savedRocket = mockModelContext.savedObjects.first else {
@@ -93,7 +93,7 @@ final class LaunchDetailViewModelTests: XCTestCase {
   }
   
   // Test handling network errors
-  func testFetchRocketIfNeeded_NetworkError() async {
+  func testFetchRocketIfNeeded_NetworkError() async throws {
     let mockNetworkService = MockNetworkService(data: nil, response: nil, error: NetworkError.unknownError)
     let mockModelContext = MockRocketModelContext()
     let viewModel = LaunchDetailViewModel<MockRocketModelContext>(networkService: mockNetworkService, modelContext: mockModelContext)
@@ -109,17 +109,17 @@ final class LaunchDetailViewModelTests: XCTestCase {
     
     // Fetch rocket if needed
     await viewModel.fetchRocketIfNeeded(launch: launch)
-    try! await Task.sleep(nanoseconds: 1_000_000_000)
+    try await Task.sleep(nanoseconds: 1_000_000_000)
 
     
     // Verify the error message is set
     XCTAssertNil(mockModelContext.savedObjects.first)
-//    XCTAssertNotNil(viewModel.errorMessage)
+    XCTAssertNotNil(viewModel.errorMessage)
     XCTAssertEqual(viewModel.errorMessage, "Something went wrong but it's not your fault")
   }
   
   // Test handling invalid JSON response
-  func testFetchRocketIfNeeded_DecodingError() async {
+  func testFetchRocketIfNeeded_DecodingError() async throws {
     let mockInvalidData = "invalid json".data(using: .utf8)!
     let mockNetworkService = MockNetworkService(data: mockInvalidData, response: nil, error: nil)
     let mockModelContext = MockRocketModelContext()
@@ -136,7 +136,7 @@ final class LaunchDetailViewModelTests: XCTestCase {
     
     // Fetch rocket if needed
     await viewModel.fetchRocketIfNeeded(launch: launch)
-    try! await Task.sleep(nanoseconds: 1_000_000_000)
+    try await Task.sleep(nanoseconds: 1_000_000_000)
     
     // Verify the error message is set
     XCTAssertNil(mockModelContext.savedObjects.first)
