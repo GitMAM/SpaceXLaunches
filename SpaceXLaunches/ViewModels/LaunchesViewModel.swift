@@ -11,9 +11,6 @@ final class LaunchesViewModel: ErrorHandlingViewModel {
   /// A message to be displayed when an error occurs.
   var errorMessage: String? = nil
   
-  /// The currently selected launch, if any.
-  var selectedLaunch: Launch?
-  
   /// Initializes a `LaunchesViewModel` with a specified network service.
   ///
   /// - Parameter networkService: The `NetworkService` instance used to fetch launch data.
