@@ -6,7 +6,7 @@ The SpaceX Launches app is a SwiftUI-based application designed to display Space
 
 ## Requirements
 
-- **Xcode**: 15 or later
+- **Xcode**: 15.4 or later
 - **iOS**: 17.0 or later
 
 ## Architecture
