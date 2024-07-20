@@ -63,6 +63,13 @@ final class LaunchesViewModel<T: ModelContextProtocol> where T.ObjectType == Lau
       showUpcoming ? launch.upcoming : !launch.upcoming
     }
   }
+  
+  
+  func destinationView(for launch: Launch, modelContext: ModelContext) -> some View {
+    // Initialize and return the detail view
+    let detailViewModel = LaunchDetailViewModel(networkService: SpaceXNetworkService(), modelContext: SwiftDataModelContext(modelContext: modelContext))
+    return DetailView(launch: launch, viewModel: detailViewModel)
+  }
 }
 
 
