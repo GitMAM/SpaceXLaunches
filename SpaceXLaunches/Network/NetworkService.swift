@@ -16,7 +16,7 @@ enum NetworkError: Error, Equatable {
 }
 
 /// Protocol defining network service operations to fetch data from the network.
-protocol NetworkService {
+protocol NetworkService: Sendable {
   /// Fetches a list of launches asynchronously.
   ///
   /// - Returns: An array of `Launch` objects representing the launches.
@@ -32,7 +32,7 @@ protocol NetworkService {
 }
 
 /// Protocol defining methods for performing network data requests.
-protocol URLSessionProtocol {
+protocol URLSessionProtocol: Sendable {
   /// Performs a network request for the specified URL request.
   ///
   /// - Parameter request: The `URLRequest` to be executed.
@@ -45,7 +45,7 @@ protocol URLSessionProtocol {
 extension URLSession: URLSessionProtocol {}
 
 // Class implementing `NetworkService` to interact with the SpaceX API.
-class SpaceXNetworkService: NetworkService {
+final class SpaceXNetworkService: NetworkService {
   /// Base URL for the SpaceX API.
   private let baseURL = "https://api.spacexdata.com/v4"
   

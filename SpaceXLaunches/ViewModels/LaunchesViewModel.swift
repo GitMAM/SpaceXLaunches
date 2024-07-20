@@ -46,6 +46,9 @@ final class LaunchesViewModel<T: ModelContextProtocol> where T.ObjectType == Lau
           modelContext.insert(launch)
         }
       }
+      // we could consider doing this in a background thread using an actor but since the amount of data is not that large it's fine to do on the main thread
+      // Example for an actor background thread
+      // https://www.hackingwithswift.com/quick-start/swiftdata/how-to-batch-insert-large-amounts-of-data-efficiently
       try modelContext.save()
     } catch {
       errorMessage = "Something went wrong but it's not your fault"
