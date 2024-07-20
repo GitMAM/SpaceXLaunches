@@ -2,10 +2,10 @@ import Foundation
 @testable import SpaceXLaunches
 
 // Define a mock NetworkService
-class MockNetworkService: NetworkService {
-  var data: Data?
-  var response: URLResponse?
-  var error: Error?
+final class MockNetworkService: NetworkService {
+  let data: Data?
+  let response: URLResponse?
+  let error: Error?
   
   init(data: Data?, response: URLResponse?, error: Error?) {
     self.data = data

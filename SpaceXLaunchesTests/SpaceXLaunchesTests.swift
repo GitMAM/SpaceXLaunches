@@ -1,37 +1,6 @@
-//
-//  SpaceXLaunchesTests.swift
-//  SpaceXLaunchesTests
-//
-//  Created by Mohamed Ali on 19/07/2024.
-//
-
 import XCTest
 @testable import SpaceXLaunches
 import SwiftData
-
-class MockURLSession: URLSessionProtocol {
-  var data: Data?
-  var urlResponse: URLResponse?
-  var error: Error?
-  
-  init(data: Data?, urlResponse: URLResponse?, error: Error?) {
-    self.data = data
-    self.urlResponse = urlResponse
-    self.error = error
-  }
-  
-  func data(for request: URLRequest) async throws -> (Data, URLResponse) {
-    if let error = error {
-      throw error
-    }
-    if let data = data, let response = urlResponse {
-      return (data, response)
-    } else {
-      throw NetworkError.unknownError
-    }
-  }
-}
-
 
 final class SpaceXNetworkServiceTests: XCTestCase {
   
