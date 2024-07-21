@@ -1,6 +1,15 @@
 import SwiftUI
 import SwiftData
 
+// one approach here is we can drive this view from a state enum like so
+//enum ViewState {
+//    case idle
+//    case loading
+//    case loaded([Launch])
+//    case error(String)
+//}
+// It's okay to go without that here since we don't have a lot of states to manage and since majority of the times the data will be loaded from local storage
+
 struct LaunchListView: View {
   private let viewModel: LaunchesViewModel<SwiftDataModelContext<Launch>>
   @Environment(\.modelContext) private var modelContext
